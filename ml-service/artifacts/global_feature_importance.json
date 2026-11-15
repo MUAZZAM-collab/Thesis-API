@@ -1,0 +1,307 @@
+{
+  "features": [
+    {
+      "feature": "Daily_Usage_Hours",
+      "decision_tree": 0.3877,
+      "random_forest": 0.3033,
+      "logistic_regression": 0.2702,
+      "ensemble_importance": 0.3204
+    },
+    {
+      "feature": "Time_on_Social_Media",
+      "decision_tree": 0.1347,
+      "random_forest": 0.1143,
+      "logistic_regression": 0.1242,
+      "ensemble_importance": 0.1244
+    },
+    {
+      "feature": "Apps_Used_Daily",
+      "decision_tree": 0.0808,
+      "random_forest": 0.1127,
+      "logistic_regression": 0.1181,
+      "ensemble_importance": 0.1039
+    },
+    {
+      "feature": "Time_on_Gaming",
+      "decision_tree": 0.0953,
+      "random_forest": 0.0992,
+      "logistic_regression": 0.1159,
+      "ensemble_importance": 0.1035
+    },
+    {
+      "feature": "Phone_Checks_Per_Day",
+      "decision_tree": 0.0966,
+      "random_forest": 0.0783,
+      "logistic_regression": 0.1151,
+      "ensemble_importance": 0.0967
+    },
+    {
+      "feature": "Sleep_Hours",
+      "decision_tree": 0.0702,
+      "random_forest": 0.0589,
+      "logistic_regression": 0.098,
+      "ensemble_importance": 0.0757
+    },
+    {
+      "feature": "Academic_Performance",
+      "decision_tree": 0.0217,
+      "random_forest": 0.0237,
+      "logistic_regression": 0.0123,
+      "ensemble_importance": 0.0192
+    },
+    {
+      "feature": "Exercise_Hours",
+      "decision_tree": 0.0086,
+      "random_forest": 0.0173,
+      "logistic_regression": 0.02,
+      "ensemble_importance": 0.0153
+    },
+    {
+      "feature": "Depression_Level",
+      "decision_tree": 0.0052,
+      "random_forest": 0.0192,
+      "logistic_regression": 0.014,
+      "ensemble_importance": 0.0128
+    },
+    {
+      "feature": "Weekend_Usage_Hours",
+      "decision_tree": 0.0093,
+      "random_forest": 0.0273,
+      "logistic_regression": 0.0018,
+      "ensemble_importance": 0.0128
+    },
+    {
+      "feature": "Anxiety_Level",
+      "decision_tree": 0.0208,
+      "random_forest": 0.0111,
+      "logistic_regression": 0.0025,
+      "ensemble_importance": 0.0115
+    },
+    {
+      "feature": "Phone_Usage_Purpose_Browsing",
+      "decision_tree": 0.0122,
+      "random_forest": 0.0123,
+      "logistic_regression": 0.0101,
+      "ensemble_importance": 0.0115
+    },
+    {
+      "feature": "Family_Communication",
+      "decision_tree": 0.0082,
+      "random_forest": 0.0098,
+      "logistic_regression": 0.0151,
+      "ensemble_importance": 0.0111
+    },
+    {
+      "feature": "Screen_Time_Before_Bed",
+      "decision_tree": 0.0153,
+      "random_forest": 0.0106,
+      "logistic_regression": 0.0018,
+      "ensemble_importance": 0.0093
+    },
+    {
+      "feature": "Self_Esteem",
+      "decision_tree": 0.0115,
+      "random_forest": 0.0081,
+      "logistic_regression": 0.0077,
+      "ensemble_importance": 0.0091
+    },
+    {
+      "feature": "Age",
+      "decision_tree": 0.0056,
+      "random_forest": 0.0116,
+      "logistic_regression": 0.0036,
+      "ensemble_importance": 0.0069
+    },
+    {
+      "feature": "Time_on_Education",
+      "decision_tree": 0.0055,
+      "random_forest": 0.0127,
+      "logistic_regression": 0.0019,
+      "ensemble_importance": 0.0067
+    },
+    {
+      "feature": "Gender_Female",
+      "decision_tree": 0.0004,
+      "random_forest": 0.0137,
+      "logistic_regression": 0.0048,
+      "ensemble_importance": 0.0063
+    },
+    {
+      "feature": "Phone_Usage_Purpose_Social Media",
+      "decision_tree": 0.0,
+      "random_forest": 0.0109,
+      "logistic_regression": 0.0079,
+      "ensemble_importance": 0.0063
+    },
+    {
+      "feature": "Social_Interactions",
+      "decision_tree": 0.0,
+      "random_forest": 0.0082,
+      "logistic_regression": 0.007,
+      "ensemble_importance": 0.0051
+    },
+    {
+      "feature": "Gender_Other",
+      "decision_tree": 0.0,
+      "random_forest": 0.011,
+      "logistic_regression": 0.0005,
+      "ensemble_importance": 0.0038
+    },
+    {
+      "feature": "School_Grade_12th",
+      "decision_tree": 0.0012,
+      "random_forest": 0.0033,
+      "logistic_regression": 0.0069,
+      "ensemble_importance": 0.0038
+    },
+    {
+      "feature": "Location_infrequent_sklearn",
+      "decision_tree": 0.0,
+      "random_forest": 0.0,
+      "logistic_regression": 0.0103,
+      "ensemble_importance": 0.0034
+    },
+    {
+      "feature": "Phone_Usage_Purpose_Other",
+      "decision_tree": 0.0052,
+      "random_forest": 0.0031,
+      "logistic_regression": 0.002,
+      "ensemble_importance": 0.0034
+    },
+    {
+      "feature": "School_Grade_9th",
+      "decision_tree": 0.0007,
+      "random_forest": 0.0015,
+      "logistic_regression": 0.0067,
+      "ensemble_importance": 0.003
+    },
+    {
+      "feature": "Parental_Control",
+      "decision_tree": 0.0,
+      "random_forest": 0.0027,
+      "logistic_regression": 0.0048,
+      "ensemble_importance": 0.0025
+    },
+    {
+      "feature": "School_Grade_11th",
+      "decision_tree": 0.0033,
+      "random_forest": 0.0019,
+      "logistic_regression": 0.0024,
+      "ensemble_importance": 0.0025
+    },
+    {
+      "feature": "School_Grade_7th",
+      "decision_tree": 0.0,
+      "random_forest": 0.002,
+      "logistic_regression": 0.0054,
+      "ensemble_importance": 0.0025
+    },
+    {
+      "feature": "School_Grade_10th",
+      "decision_tree": 0.0002,
+      "random_forest": 0.0019,
+      "logistic_regression": 0.0033,
+      "ensemble_importance": 0.0018
+    },
+    {
+      "feature": "Phone_Usage_Purpose_Education",
+      "decision_tree": 0.0,
+      "random_forest": 0.0031,
+      "logistic_regression": 0.0014,
+      "ensemble_importance": 0.0015
+    },
+    {
+      "feature": "School_Grade_8th",
+      "decision_tree": 0.0,
+      "random_forest": 0.0017,
+      "logistic_regression": 0.0026,
+      "ensemble_importance": 0.0014
+    },
+    {
+      "feature": "Gender_Male",
+      "decision_tree": 0.0,
+      "random_forest": 0.0029,
+      "logistic_regression": 0.0008,
+      "ensemble_importance": 0.0012
+    },
+    {
+      "feature": "Phone_Usage_Purpose_Gaming",
+      "decision_tree": 0.0,
+      "random_forest": 0.0017,
+      "logistic_regression": 0.0009,
+      "ensemble_importance": 0.0009
+    }
+  ],
+  "top_10": [
+    {
+      "feature": "Daily_Usage_Hours",
+      "decision_tree": 0.3877,
+      "random_forest": 0.3033,
+      "logistic_regression": 0.2702,
+      "ensemble_importance": 0.3204
+    },
+    {
+      "feature": "Time_on_Social_Media",
+      "decision_tree": 0.1347,
+      "random_forest": 0.1143,
+      "logistic_regression": 0.1242,
+      "ensemble_importance": 0.1244
+    },
+    {
+      "feature": "Apps_Used_Daily",
+      "decision_tree": 0.0808,
+      "random_forest": 0.1127,
+      "logistic_regression": 0.1181,
+      "ensemble_importance": 0.1039
+    },
+    {
+      "feature": "Time_on_Gaming",
+      "decision_tree": 0.0953,
+      "random_forest": 0.0992,
+      "logistic_regression": 0.1159,
+      "ensemble_importance": 0.1035
+    },
+    {
+      "feature": "Phone_Checks_Per_Day",
+      "decision_tree": 0.0966,
+      "random_forest": 0.0783,
+      "logistic_regression": 0.1151,
+      "ensemble_importance": 0.0967
+    },
+    {
+      "feature": "Sleep_Hours",
+      "decision_tree": 0.0702,
+      "random_forest": 0.0589,
+      "logistic_regression": 0.098,
+      "ensemble_importance": 0.0757
+    },
+    {
+      "feature": "Academic_Performance",
+      "decision_tree": 0.0217,
+      "random_forest": 0.0237,
+      "logistic_regression": 0.0123,
+      "ensemble_importance": 0.0192
+    },
+    {
+      "feature": "Exercise_Hours",
+      "decision_tree": 0.0086,
+      "random_forest": 0.0173,
+      "logistic_regression": 0.02,
+      "ensemble_importance": 0.0153
+    },
+    {
+      "feature": "Depression_Level",
+      "decision_tree": 0.0052,
+      "random_forest": 0.0192,
+      "logistic_regression": 0.014,
+      "ensemble_importance": 0.0128
+    },
+    {
+      "feature": "Weekend_Usage_Hours",
+      "decision_tree": 0.0093,
+      "random_forest": 0.0273,
+      "logistic_regression": 0.0018,
+      "ensemble_importance": 0.0128
+    }
+  ]
+}

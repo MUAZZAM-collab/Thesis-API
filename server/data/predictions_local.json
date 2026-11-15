@@ -1,0 +1,1703 @@
+[
+  {
+    "_id": "local_1794759089510_ijglht",
+    "createdAt": "2026-11-15T16:11:29.510Z",
+    "inputFeatures": {
+      "Age": 16,
+      "Gender": "Female",
+      "Location": "Urban",
+      "School_Grade": "10th",
+      "Daily_Usage_Hours": 5.5,
+      "Screen_Time_Before_Bed": 1.5,
+      "Phone_Checks_Per_Day": 85,
+      "Apps_Used_Daily": 12,
+      "Weekend_Usage_Hours": 7,
+      "Phone_Usage_Purpose": "Social Media",
+      "Time_on_Social_Media": 2.5,
+      "Time_on_Gaming": 1,
+      "Time_on_Education": 1,
+      "Sleep_Hours": 6.5,
+      "Exercise_Hours": 1,
+      "Social_Interactions": 5,
+      "Anxiety_Level": 5,
+      "Depression_Level": 4,
+      "Self_Esteem": 6,
+      "Academic_Performance": 78,
+      "Parental_Control": 0,
+      "Family_Communication": 6
+    },
+    "predictedClass": "High",
+    "riskLevel": "High",
+    "recommendedModel": {
+      "key": "logistic_regression",
+      "name": "Logistic Regression",
+      "reason": "Highest Macro F1-Score (0.9257) & ROC-AUC (0.9991) across 5-fold stratified cross-validation.",
+      "confidence": 1,
+      "f1_score": 0.9257,
+      "accuracy": 0.98
+    },
+    "modelPredictions": [
+      {
+        "model_key": "logistic_regression",
+        "model_name": "Logistic Regression",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      },
+      {
+        "model_key": "random_forest",
+        "model_name": "Random Forest",
+        "predicted_class": "High",
+        "confidence": 0.7186,
+        "probabilities": {
+          "High": 0.7186,
+          "Low": 0.0471,
+          "Medium": 0.2343
+        }
+      },
+      {
+        "model_key": "decision_tree",
+        "model_name": "Decision Tree",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      }
+    ],
+    "shapTopFeatures": {
+      "logistic_regression": [
+        {
+          "feature": "Time_on_Gaming",
+          "raw_value": 1,
+          "shap_value": -3.7898,
+          "impact": "decreases_risk",
+          "description": "Time_on_Gaming (value: 1.0) acts as a mitigating factor against High (-3.790 SHAP)."
+        },
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 2.6481,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+2.648 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": -0.9191,
+          "impact": "decreases_risk",
+          "description": "Apps_Used_Daily (value: 12) acts as a mitigating factor against High (-0.919 SHAP)."
+        },
+        {
+          "feature": "Phone_Usage_Purpose_Social Media",
+          "raw_value": "N/A",
+          "shap_value": -0.5369,
+          "impact": "decreases_risk",
+          "description": "Phone_Usage_Purpose_Social Media (value: N/A) acts as a mitigating factor against High (-0.537 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.3345,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.335 SHAP)."
+        }
+      ],
+      "random_forest": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.206,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.206 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0423,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.042 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0346,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.035 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0264,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.026 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0251,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.025 SHAP)."
+        }
+      ],
+      "decision_tree": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.5329,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.533 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0629,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.063 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0371,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.037 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0199,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.020 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0114,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.011 SHAP)."
+        }
+      ]
+    },
+    "explanationSummary": "Assessment indicates **High Addiction Risk** with 100.0% confidence. Primary risk drivers: **Daily_Usage_Hours, Sleep_Hours**. Protective mitigating factors: **Time_on_Gaming, Apps_Used_Daily**.",
+    "userId": null,
+    "notes": ""
+  },
+  {
+    "_id": "local_1794758648891_pyxzwi",
+    "createdAt": "2026-11-15T16:04:08.891Z",
+    "inputFeatures": {
+      "Age": 16,
+      "Gender": "Female",
+      "Location": "Urban",
+      "School_Grade": "10th",
+      "Daily_Usage_Hours": 5.5,
+      "Screen_Time_Before_Bed": 1.5,
+      "Phone_Checks_Per_Day": 85,
+      "Apps_Used_Daily": 12,
+      "Weekend_Usage_Hours": 7,
+      "Phone_Usage_Purpose": "Social Media",
+      "Time_on_Social_Media": 2.5,
+      "Time_on_Gaming": 1,
+      "Time_on_Education": 1,
+      "Sleep_Hours": 6.5,
+      "Exercise_Hours": 1,
+      "Social_Interactions": 5,
+      "Anxiety_Level": 5,
+      "Depression_Level": 4,
+      "Self_Esteem": 6,
+      "Academic_Performance": 78,
+      "Parental_Control": 0,
+      "Family_Communication": 6
+    },
+    "predictedClass": "High",
+    "riskLevel": "High",
+    "recommendedModel": {
+      "key": "logistic_regression",
+      "name": "Logistic Regression",
+      "reason": "Highest Macro F1-Score (0.9257) & ROC-AUC (0.9991) across 5-fold stratified cross-validation.",
+      "confidence": 1,
+      "f1_score": 0.9257,
+      "accuracy": 0.98
+    },
+    "modelPredictions": [
+      {
+        "model_key": "logistic_regression",
+        "model_name": "Logistic Regression",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      },
+      {
+        "model_key": "random_forest",
+        "model_name": "Random Forest",
+        "predicted_class": "High",
+        "confidence": 0.7186,
+        "probabilities": {
+          "High": 0.7186,
+          "Low": 0.0471,
+          "Medium": 0.2343
+        }
+      },
+      {
+        "model_key": "decision_tree",
+        "model_name": "Decision Tree",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      }
+    ],
+    "shapTopFeatures": {
+      "logistic_regression": [
+        {
+          "feature": "Time_on_Gaming",
+          "raw_value": 1,
+          "shap_value": -3.7898,
+          "impact": "decreases_risk",
+          "description": "Time_on_Gaming (value: 1.0) acts as a mitigating factor against High (-3.790 SHAP)."
+        },
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 2.6481,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+2.648 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": -0.9191,
+          "impact": "decreases_risk",
+          "description": "Apps_Used_Daily (value: 12) acts as a mitigating factor against High (-0.919 SHAP)."
+        },
+        {
+          "feature": "Phone_Usage_Purpose_Social Media",
+          "raw_value": "N/A",
+          "shap_value": -0.5369,
+          "impact": "decreases_risk",
+          "description": "Phone_Usage_Purpose_Social Media (value: N/A) acts as a mitigating factor against High (-0.537 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.3345,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.335 SHAP)."
+        }
+      ],
+      "random_forest": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.206,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.206 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0423,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.042 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0346,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.035 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0264,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.026 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0251,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.025 SHAP)."
+        }
+      ],
+      "decision_tree": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.5329,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.533 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0629,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.063 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0371,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.037 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0199,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.020 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0114,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.011 SHAP)."
+        }
+      ]
+    },
+    "explanationSummary": "Assessment indicates **High Addiction Risk** with 100.0% confidence. Primary risk drivers: **Daily_Usage_Hours, Sleep_Hours**. Protective mitigating factors: **Time_on_Gaming, Apps_Used_Daily**.",
+    "userId": null,
+    "notes": ""
+  },
+  {
+    "_id": "local_1794758490296_xzzq27",
+    "createdAt": "2026-11-15T16:01:30.296Z",
+    "inputFeatures": {
+      "Age": 16,
+      "Gender": "Female",
+      "Location": "Urban",
+      "School_Grade": "10th",
+      "Daily_Usage_Hours": 5.5,
+      "Screen_Time_Before_Bed": 1.5,
+      "Phone_Checks_Per_Day": 85,
+      "Apps_Used_Daily": 12,
+      "Weekend_Usage_Hours": 7,
+      "Phone_Usage_Purpose": "Social Media",
+      "Time_on_Social_Media": 2.5,
+      "Time_on_Gaming": 1,
+      "Time_on_Education": 1,
+      "Sleep_Hours": 6.5,
+      "Exercise_Hours": 1,
+      "Social_Interactions": 5,
+      "Anxiety_Level": 5,
+      "Depression_Level": 4,
+      "Self_Esteem": 6,
+      "Academic_Performance": 78,
+      "Parental_Control": 0,
+      "Family_Communication": 6
+    },
+    "predictedClass": "High",
+    "riskLevel": "High",
+    "recommendedModel": {
+      "key": "logistic_regression",
+      "name": "Logistic Regression",
+      "reason": "Highest Macro F1-Score (0.9257) & ROC-AUC (0.9991) across 5-fold stratified cross-validation.",
+      "confidence": 1,
+      "f1_score": 0.9257,
+      "accuracy": 0.98
+    },
+    "modelPredictions": [
+      {
+        "model_key": "logistic_regression",
+        "model_name": "Logistic Regression",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      },
+      {
+        "model_key": "random_forest",
+        "model_name": "Random Forest",
+        "predicted_class": "High",
+        "confidence": 0.7186,
+        "probabilities": {
+          "High": 0.7186,
+          "Low": 0.0471,
+          "Medium": 0.2343
+        }
+      },
+      {
+        "model_key": "decision_tree",
+        "model_name": "Decision Tree",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      }
+    ],
+    "shapTopFeatures": {
+      "logistic_regression": [
+        {
+          "feature": "Time_on_Gaming",
+          "raw_value": 1,
+          "shap_value": -3.7898,
+          "impact": "decreases_risk",
+          "description": "Time_on_Gaming (value: 1.0) acts as a mitigating factor against High (-3.790 SHAP)."
+        },
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 2.6481,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+2.648 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": -0.9191,
+          "impact": "decreases_risk",
+          "description": "Apps_Used_Daily (value: 12) acts as a mitigating factor against High (-0.919 SHAP)."
+        },
+        {
+          "feature": "Phone_Usage_Purpose_Social Media",
+          "raw_value": "N/A",
+          "shap_value": -0.5369,
+          "impact": "decreases_risk",
+          "description": "Phone_Usage_Purpose_Social Media (value: N/A) acts as a mitigating factor against High (-0.537 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.3345,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.335 SHAP)."
+        }
+      ],
+      "random_forest": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.206,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.206 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0423,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.042 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0346,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.035 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0264,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.026 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0251,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.025 SHAP)."
+        }
+      ],
+      "decision_tree": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.5329,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.533 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0629,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.063 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0371,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.037 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0199,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.020 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0114,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.011 SHAP)."
+        }
+      ]
+    },
+    "explanationSummary": "Assessment indicates **High Addiction Risk** with 100.0% confidence. Primary risk drivers: **Daily_Usage_Hours, Sleep_Hours**. Protective mitigating factors: **Time_on_Gaming, Apps_Used_Daily**.",
+    "userId": null,
+    "notes": ""
+  },
+  {
+    "_id": "local_1794758356497_4c5lyu",
+    "createdAt": "2026-11-15T15:59:16.497Z",
+    "inputFeatures": {
+      "Age": 16,
+      "Gender": "Female",
+      "Location": "Urban",
+      "School_Grade": "10th",
+      "Daily_Usage_Hours": 5.5,
+      "Screen_Time_Before_Bed": 1.5,
+      "Phone_Checks_Per_Day": 85,
+      "Apps_Used_Daily": 12,
+      "Weekend_Usage_Hours": 7,
+      "Phone_Usage_Purpose": "Social Media",
+      "Time_on_Social_Media": 2.5,
+      "Time_on_Gaming": 1,
+      "Time_on_Education": 1,
+      "Sleep_Hours": 6.5,
+      "Exercise_Hours": 1,
+      "Social_Interactions": 5,
+      "Anxiety_Level": 5,
+      "Depression_Level": 4,
+      "Self_Esteem": 6,
+      "Academic_Performance": 78,
+      "Parental_Control": 0,
+      "Family_Communication": 6
+    },
+    "predictedClass": "High",
+    "riskLevel": "High",
+    "recommendedModel": {
+      "key": "logistic_regression",
+      "name": "Logistic Regression",
+      "reason": "Highest Macro F1-Score (0.9257) & ROC-AUC (0.9991) across 5-fold stratified cross-validation.",
+      "confidence": 1,
+      "f1_score": 0.9257,
+      "accuracy": 0.98
+    },
+    "modelPredictions": [
+      {
+        "model_key": "logistic_regression",
+        "model_name": "Logistic Regression",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      },
+      {
+        "model_key": "random_forest",
+        "model_name": "Random Forest",
+        "predicted_class": "High",
+        "confidence": 0.7186,
+        "probabilities": {
+          "High": 0.7186,
+          "Low": 0.0471,
+          "Medium": 0.2343
+        }
+      },
+      {
+        "model_key": "decision_tree",
+        "model_name": "Decision Tree",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      }
+    ],
+    "shapTopFeatures": {
+      "logistic_regression": [
+        {
+          "feature": "Time_on_Gaming",
+          "raw_value": 1,
+          "shap_value": -3.7898,
+          "impact": "decreases_risk",
+          "description": "Time_on_Gaming (value: 1.0) acts as a mitigating factor against High (-3.790 SHAP)."
+        },
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 2.6481,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+2.648 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": -0.9191,
+          "impact": "decreases_risk",
+          "description": "Apps_Used_Daily (value: 12) acts as a mitigating factor against High (-0.919 SHAP)."
+        },
+        {
+          "feature": "Phone_Usage_Purpose_Social Media",
+          "raw_value": "N/A",
+          "shap_value": -0.5369,
+          "impact": "decreases_risk",
+          "description": "Phone_Usage_Purpose_Social Media (value: N/A) acts as a mitigating factor against High (-0.537 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.3345,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.335 SHAP)."
+        }
+      ],
+      "random_forest": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.206,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.206 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0423,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.042 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0346,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.035 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0264,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.026 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0251,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.025 SHAP)."
+        }
+      ],
+      "decision_tree": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.5329,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.533 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0629,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.063 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0371,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.037 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0199,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.020 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0114,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.011 SHAP)."
+        }
+      ]
+    },
+    "explanationSummary": "Assessment indicates **High Addiction Risk** with 100.0% confidence. Primary risk drivers: **Daily_Usage_Hours, Sleep_Hours**. Protective mitigating factors: **Time_on_Gaming, Apps_Used_Daily**.",
+    "userId": null,
+    "notes": ""
+  },
+  {
+    "_id": "local_1794755974308_h9kxsz",
+    "createdAt": "2026-11-15T15:19:34.308Z",
+    "inputFeatures": {
+      "Age": 16,
+      "Gender": "Female",
+      "Location": "Urban",
+      "School_Grade": "10th",
+      "Daily_Usage_Hours": 5.5,
+      "Screen_Time_Before_Bed": 1.5,
+      "Phone_Checks_Per_Day": 85,
+      "Apps_Used_Daily": 12,
+      "Weekend_Usage_Hours": 7,
+      "Phone_Usage_Purpose": "Social Media",
+      "Time_on_Social_Media": 2.5,
+      "Time_on_Gaming": 1,
+      "Time_on_Education": 1,
+      "Sleep_Hours": 6.5,
+      "Exercise_Hours": 1,
+      "Social_Interactions": 5,
+      "Anxiety_Level": 5,
+      "Depression_Level": 4,
+      "Self_Esteem": 6,
+      "Academic_Performance": 78,
+      "Parental_Control": 0,
+      "Family_Communication": 6
+    },
+    "predictedClass": "High",
+    "riskLevel": "High",
+    "recommendedModel": {
+      "key": "logistic_regression",
+      "name": "Logistic Regression",
+      "reason": "Highest Macro F1-Score (0.9257) & ROC-AUC (0.9991) across 5-fold stratified cross-validation.",
+      "confidence": 1,
+      "f1_score": 0.9257,
+      "accuracy": 0.98
+    },
+    "modelPredictions": [
+      {
+        "model_key": "logistic_regression",
+        "model_name": "Logistic Regression",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      },
+      {
+        "model_key": "random_forest",
+        "model_name": "Random Forest",
+        "predicted_class": "High",
+        "confidence": 0.7186,
+        "probabilities": {
+          "High": 0.7186,
+          "Low": 0.0471,
+          "Medium": 0.2343
+        }
+      },
+      {
+        "model_key": "decision_tree",
+        "model_name": "Decision Tree",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      }
+    ],
+    "shapTopFeatures": {
+      "logistic_regression": [
+        {
+          "feature": "Time_on_Gaming",
+          "raw_value": 1,
+          "shap_value": -3.7898,
+          "impact": "decreases_risk",
+          "description": "Time_on_Gaming (value: 1.0) acts as a mitigating factor against High (-3.790 SHAP)."
+        },
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 2.6481,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+2.648 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": -0.9191,
+          "impact": "decreases_risk",
+          "description": "Apps_Used_Daily (value: 12) acts as a mitigating factor against High (-0.919 SHAP)."
+        },
+        {
+          "feature": "Phone_Usage_Purpose_Social Media",
+          "raw_value": "N/A",
+          "shap_value": -0.5369,
+          "impact": "decreases_risk",
+          "description": "Phone_Usage_Purpose_Social Media (value: N/A) acts as a mitigating factor against High (-0.537 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.3345,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.335 SHAP)."
+        }
+      ],
+      "random_forest": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.206,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.206 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0423,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.042 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0346,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.035 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0264,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.026 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0251,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.025 SHAP)."
+        }
+      ],
+      "decision_tree": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.5329,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.533 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0629,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.063 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0371,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.037 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0199,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.020 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0114,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.011 SHAP)."
+        }
+      ]
+    },
+    "explanationSummary": "Assessment indicates **High Addiction Risk** with 100.0% confidence. Primary risk drivers: **Daily_Usage_Hours, Sleep_Hours**. Protective mitigating factors: **Time_on_Gaming, Apps_Used_Daily**.",
+    "userId": null,
+    "notes": ""
+  },
+  {
+    "_id": "local_1794750888051_ww9mxd",
+    "createdAt": "2026-11-15T13:54:48.051Z",
+    "inputFeatures": {
+      "Age": 16,
+      "Gender": "Female",
+      "Location": "Urban",
+      "School_Grade": "10th",
+      "Daily_Usage_Hours": 3.5,
+      "Screen_Time_Before_Bed": 2,
+      "Phone_Checks_Per_Day": 50,
+      "Apps_Used_Daily": 12,
+      "Weekend_Usage_Hours": 7,
+      "Phone_Usage_Purpose": "Social Media",
+      "Time_on_Social_Media": 2.5,
+      "Time_on_Gaming": 1,
+      "Time_on_Education": 1,
+      "Sleep_Hours": 6.5,
+      "Exercise_Hours": 1,
+      "Social_Interactions": 5,
+      "Anxiety_Level": 5,
+      "Depression_Level": 4,
+      "Self_Esteem": 6,
+      "Academic_Performance": 78,
+      "Parental_Control": 0,
+      "Family_Communication": 6
+    },
+    "predictedClass": "Medium",
+    "riskLevel": "Medium",
+    "recommendedModel": {
+      "key": "logistic_regression",
+      "name": "Logistic Regression",
+      "reason": "Highest Macro F1-Score (0.9257) & ROC-AUC (0.9991) across 5-fold stratified cross-validation.",
+      "confidence": 0.5439,
+      "f1_score": 0.9257,
+      "accuracy": 0.98
+    },
+    "modelPredictions": [
+      {
+        "model_key": "logistic_regression",
+        "model_name": "Logistic Regression",
+        "predicted_class": "Medium",
+        "confidence": 0.5439,
+        "probabilities": {
+          "High": 0.4561,
+          "Low": 0,
+          "Medium": 0.5439
+        }
+      },
+      {
+        "model_key": "random_forest",
+        "model_name": "Random Forest",
+        "predicted_class": "Medium",
+        "confidence": 0.4899,
+        "probabilities": {
+          "High": 0.3912,
+          "Low": 0.1189,
+          "Medium": 0.4899
+        }
+      },
+      {
+        "model_key": "decision_tree",
+        "model_name": "Decision Tree",
+        "predicted_class": "Medium",
+        "confidence": 1,
+        "probabilities": {
+          "High": 0,
+          "Low": 0,
+          "Medium": 1
+        }
+      }
+    ],
+    "shapTopFeatures": {
+      "logistic_regression": [
+        {
+          "feature": "Phone_Usage_Purpose_Social Media",
+          "raw_value": "N/A",
+          "shap_value": -0.5646,
+          "impact": "decreases_risk",
+          "description": "Phone_Usage_Purpose_Social Media (value: N/A) acts as a mitigating factor against Medium (-0.565 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 50,
+          "shap_value": -0.4996,
+          "impact": "decreases_risk",
+          "description": "Phone_Checks_Per_Day (value: 50) acts as a mitigating factor against Medium (-0.500 SHAP)."
+        },
+        {
+          "feature": "Location_infrequent_sklearn",
+          "raw_value": "N/A",
+          "shap_value": -0.4244,
+          "impact": "decreases_risk",
+          "description": "Location_infrequent_sklearn (value: N/A) acts as a mitigating factor against Medium (-0.424 SHAP)."
+        },
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 3.5,
+          "shap_value": -0.3931,
+          "impact": "decreases_risk",
+          "description": "Daily_Usage_Hours (value: 3.5) acts as a mitigating factor against Medium (-0.393 SHAP)."
+        },
+        {
+          "feature": "School_Grade_10th",
+          "raw_value": "N/A",
+          "shap_value": -0.3729,
+          "impact": "decreases_risk",
+          "description": "School_Grade_10th (value: N/A) acts as a mitigating factor against Medium (-0.373 SHAP)."
+        }
+      ],
+      "random_forest": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 3.5,
+          "shap_value": 0.0856,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 3.5) elevates predicted risk toward Medium (+0.086 SHAP)."
+        },
+        {
+          "feature": "Gender_Female",
+          "raw_value": "N/A",
+          "shap_value": 0.0175,
+          "impact": "increases_risk",
+          "description": "Gender_Female (value: N/A) elevates predicted risk toward Medium (+0.018 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 50,
+          "shap_value": 0.0137,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 50) elevates predicted risk toward Medium (+0.014 SHAP)."
+        },
+        {
+          "feature": "Phone_Usage_Purpose_Social Media",
+          "raw_value": "N/A",
+          "shap_value": -0.012,
+          "impact": "decreases_risk",
+          "description": "Phone_Usage_Purpose_Social Media (value: N/A) acts as a mitigating factor against Medium (-0.012 SHAP)."
+        },
+        {
+          "feature": "Screen_Time_Before_Bed",
+          "raw_value": 2,
+          "shap_value": 0.0103,
+          "impact": "increases_risk",
+          "description": "Screen_Time_Before_Bed (value: 2.0) elevates predicted risk toward Medium (+0.010 SHAP)."
+        }
+      ],
+      "decision_tree": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 3.5,
+          "shap_value": 0.3568,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 3.5) elevates predicted risk toward Medium (+0.357 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.1114,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward Medium (+0.111 SHAP)."
+        },
+        {
+          "feature": "Time_on_Gaming",
+          "raw_value": 1,
+          "shap_value": 0.0785,
+          "impact": "increases_risk",
+          "description": "Time_on_Gaming (value: 1.0) elevates predicted risk toward Medium (+0.079 SHAP)."
+        },
+        {
+          "feature": "Self_Esteem",
+          "raw_value": 6,
+          "shap_value": 0.049,
+          "impact": "increases_risk",
+          "description": "Self_Esteem (value: 6) elevates predicted risk toward Medium (+0.049 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.039,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward Medium (+0.039 SHAP)."
+        }
+      ]
+    },
+    "explanationSummary": "Assessment indicates **Medium Addiction Risk** with 54.4% confidence. Protective mitigating factors: **Phone_Usage_Purpose_Social Media, Phone_Checks_Per_Day**.",
+    "userId": null,
+    "notes": ""
+  },
+  {
+    "_id": "local_1794750818666_j6shy4",
+    "createdAt": "2026-11-15T13:53:38.666Z",
+    "inputFeatures": {
+      "Age": 16,
+      "Gender": "Female",
+      "Location": "Urban",
+      "School_Grade": "10th",
+      "Daily_Usage_Hours": 5.5,
+      "Screen_Time_Before_Bed": 1.5,
+      "Phone_Checks_Per_Day": 85,
+      "Apps_Used_Daily": 12,
+      "Weekend_Usage_Hours": 7,
+      "Phone_Usage_Purpose": "Social Media",
+      "Time_on_Social_Media": 2.5,
+      "Time_on_Gaming": 1,
+      "Time_on_Education": 1,
+      "Sleep_Hours": 6.5,
+      "Exercise_Hours": 1,
+      "Social_Interactions": 5,
+      "Anxiety_Level": 5,
+      "Depression_Level": 4,
+      "Self_Esteem": 6,
+      "Academic_Performance": 78,
+      "Parental_Control": 0,
+      "Family_Communication": 6
+    },
+    "predictedClass": "High",
+    "riskLevel": "High",
+    "recommendedModel": {
+      "key": "logistic_regression",
+      "name": "Logistic Regression",
+      "reason": "Highest Macro F1-Score (0.9257) & ROC-AUC (0.9991) across 5-fold stratified cross-validation.",
+      "confidence": 1,
+      "f1_score": 0.9257,
+      "accuracy": 0.98
+    },
+    "modelPredictions": [
+      {
+        "model_key": "logistic_regression",
+        "model_name": "Logistic Regression",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      },
+      {
+        "model_key": "random_forest",
+        "model_name": "Random Forest",
+        "predicted_class": "High",
+        "confidence": 0.7186,
+        "probabilities": {
+          "High": 0.7186,
+          "Low": 0.0471,
+          "Medium": 0.2343
+        }
+      },
+      {
+        "model_key": "decision_tree",
+        "model_name": "Decision Tree",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      }
+    ],
+    "shapTopFeatures": {
+      "logistic_regression": [
+        {
+          "feature": "Time_on_Gaming",
+          "raw_value": 1,
+          "shap_value": -3.7898,
+          "impact": "decreases_risk",
+          "description": "Time_on_Gaming (value: 1.0) acts as a mitigating factor against High (-3.790 SHAP)."
+        },
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 2.6481,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+2.648 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": -0.9191,
+          "impact": "decreases_risk",
+          "description": "Apps_Used_Daily (value: 12) acts as a mitigating factor against High (-0.919 SHAP)."
+        },
+        {
+          "feature": "Phone_Usage_Purpose_Social Media",
+          "raw_value": "N/A",
+          "shap_value": -0.5369,
+          "impact": "decreases_risk",
+          "description": "Phone_Usage_Purpose_Social Media (value: N/A) acts as a mitigating factor against High (-0.537 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.3345,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.335 SHAP)."
+        }
+      ],
+      "random_forest": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.206,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.206 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0423,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.042 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0346,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.035 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0264,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.026 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0251,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.025 SHAP)."
+        }
+      ],
+      "decision_tree": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.5329,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.533 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0629,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.063 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0371,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.037 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0199,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.020 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0114,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.011 SHAP)."
+        }
+      ]
+    },
+    "explanationSummary": "Assessment indicates **High Addiction Risk** with 100.0% confidence. Primary risk drivers: **Daily_Usage_Hours, Sleep_Hours**. Protective mitigating factors: **Time_on_Gaming, Apps_Used_Daily**.",
+    "userId": null,
+    "notes": ""
+  },
+  {
+    "_id": "local_1794750817142_dagww4",
+    "createdAt": "2026-11-15T13:53:37.142Z",
+    "inputFeatures": {
+      "Age": 16,
+      "Gender": "Female",
+      "Location": "Urban",
+      "School_Grade": "10th",
+      "Daily_Usage_Hours": 5.5,
+      "Screen_Time_Before_Bed": 1.5,
+      "Phone_Checks_Per_Day": 85,
+      "Apps_Used_Daily": 12,
+      "Weekend_Usage_Hours": 7,
+      "Phone_Usage_Purpose": "Social Media",
+      "Time_on_Social_Media": 2.5,
+      "Time_on_Gaming": 1,
+      "Time_on_Education": 1,
+      "Sleep_Hours": 6.5,
+      "Exercise_Hours": 1,
+      "Social_Interactions": 5,
+      "Anxiety_Level": 5,
+      "Depression_Level": 4,
+      "Self_Esteem": 6,
+      "Academic_Performance": 78,
+      "Parental_Control": 0,
+      "Family_Communication": 6
+    },
+    "predictedClass": "High",
+    "riskLevel": "High",
+    "recommendedModel": {
+      "key": "logistic_regression",
+      "name": "Logistic Regression",
+      "reason": "Highest Macro F1-Score (0.9257) & ROC-AUC (0.9991) across 5-fold stratified cross-validation.",
+      "confidence": 1,
+      "f1_score": 0.9257,
+      "accuracy": 0.98
+    },
+    "modelPredictions": [
+      {
+        "model_key": "logistic_regression",
+        "model_name": "Logistic Regression",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      },
+      {
+        "model_key": "random_forest",
+        "model_name": "Random Forest",
+        "predicted_class": "High",
+        "confidence": 0.7186,
+        "probabilities": {
+          "High": 0.7186,
+          "Low": 0.0471,
+          "Medium": 0.2343
+        }
+      },
+      {
+        "model_key": "decision_tree",
+        "model_name": "Decision Tree",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      }
+    ],
+    "shapTopFeatures": {
+      "logistic_regression": [
+        {
+          "feature": "Time_on_Gaming",
+          "raw_value": 1,
+          "shap_value": -3.7898,
+          "impact": "decreases_risk",
+          "description": "Time_on_Gaming (value: 1.0) acts as a mitigating factor against High (-3.790 SHAP)."
+        },
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 2.6481,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+2.648 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": -0.9191,
+          "impact": "decreases_risk",
+          "description": "Apps_Used_Daily (value: 12) acts as a mitigating factor against High (-0.919 SHAP)."
+        },
+        {
+          "feature": "Phone_Usage_Purpose_Social Media",
+          "raw_value": "N/A",
+          "shap_value": -0.5369,
+          "impact": "decreases_risk",
+          "description": "Phone_Usage_Purpose_Social Media (value: N/A) acts as a mitigating factor against High (-0.537 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.3345,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.335 SHAP)."
+        }
+      ],
+      "random_forest": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.206,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.206 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0423,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.042 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0346,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.035 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0264,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.026 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0251,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.025 SHAP)."
+        }
+      ],
+      "decision_tree": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.5329,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 5.5) elevates predicted risk toward High (+0.533 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 2.5,
+          "shap_value": 0.0629,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 2.5) elevates predicted risk toward High (+0.063 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 12,
+          "shap_value": 0.0371,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 12) elevates predicted risk toward High (+0.037 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 85,
+          "shap_value": 0.0199,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 85) elevates predicted risk toward High (+0.020 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.0114,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 6.5) elevates predicted risk toward High (+0.011 SHAP)."
+        }
+      ]
+    },
+    "explanationSummary": "Assessment indicates **High Addiction Risk** with 100.0% confidence. Primary risk drivers: **Daily_Usage_Hours, Sleep_Hours**. Protective mitigating factors: **Time_on_Gaming, Apps_Used_Daily**.",
+    "userId": null,
+    "notes": ""
+  },
+  {
+    "_id": "local_1794749183766_j2lla9",
+    "createdAt": "2026-11-15T13:26:23.766Z",
+    "inputFeatures": {
+      "Age": 16,
+      "Gender": "Female",
+      "Location": "Urban",
+      "School_Grade": "10th",
+      "Daily_Usage_Hours": 6.5,
+      "Screen_Time_Before_Bed": 2,
+      "Phone_Checks_Per_Day": 110,
+      "Apps_Used_Daily": 15,
+      "Weekend_Usage_Hours": 8,
+      "Phone_Usage_Purpose": "Social Media",
+      "Time_on_Social_Media": 3.5,
+      "Time_on_Gaming": 1.5,
+      "Time_on_Education": 0.8,
+      "Sleep_Hours": 5.5,
+      "Exercise_Hours": 0.5,
+      "Social_Interactions": 4,
+      "Anxiety_Level": 8,
+      "Depression_Level": 7,
+      "Self_Esteem": 3,
+      "Academic_Performance": 72,
+      "Parental_Control": 0,
+      "Family_Communication": 4
+    },
+    "predictedClass": "High",
+    "riskLevel": "High",
+    "recommendedModel": {
+      "key": "logistic_regression",
+      "name": "Logistic Regression",
+      "reason": "Highest Macro F1-Score (0.9257) & ROC-AUC (0.9991) across 5-fold stratified cross-validation.",
+      "confidence": 1,
+      "f1_score": 0.9257,
+      "accuracy": 0.98
+    },
+    "modelPredictions": [
+      {
+        "model_key": "logistic_regression",
+        "model_name": "Logistic Regression",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      },
+      {
+        "model_key": "random_forest",
+        "model_name": "Random Forest",
+        "predicted_class": "High",
+        "confidence": 0.89,
+        "probabilities": {
+          "High": 0.89,
+          "Low": 0.011,
+          "Medium": 0.099
+        }
+      },
+      {
+        "model_key": "decision_tree",
+        "model_name": "Decision Tree",
+        "predicted_class": "High",
+        "confidence": 1,
+        "probabilities": {
+          "High": 1,
+          "Low": 0,
+          "Medium": 0
+        }
+      }
+    ],
+    "shapTopFeatures": {
+      "logistic_regression": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 6.5,
+          "shap_value": 10.004,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 6.5) elevates predicted risk toward High (+10.004 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 3.5,
+          "shap_value": 7.3069,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 3.5) elevates predicted risk toward High (+7.307 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 5.5,
+          "shap_value": 3.931,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 5.5) elevates predicted risk toward High (+3.931 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 110,
+          "shap_value": 3.8596,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 110) elevates predicted risk toward High (+3.860 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 15,
+          "shap_value": 3.323,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 15) elevates predicted risk toward High (+3.323 SHAP)."
+        }
+      ],
+      "random_forest": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.2066,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 6.5) elevates predicted risk toward High (+0.207 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 3.5,
+          "shap_value": 0.1139,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 3.5) elevates predicted risk toward High (+0.114 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 15,
+          "shap_value": 0.0729,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 15) elevates predicted risk toward High (+0.073 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 110,
+          "shap_value": 0.0638,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 110) elevates predicted risk toward High (+0.064 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.0369,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 5.5) elevates predicted risk toward High (+0.037 SHAP)."
+        }
+      ],
+      "decision_tree": [
+        {
+          "feature": "Daily_Usage_Hours",
+          "raw_value": 6.5,
+          "shap_value": 0.2602,
+          "impact": "increases_risk",
+          "description": "Daily_Usage_Hours (value: 6.5) elevates predicted risk toward High (+0.260 SHAP)."
+        },
+        {
+          "feature": "Time_on_Social_Media",
+          "raw_value": 3.5,
+          "shap_value": 0.1348,
+          "impact": "increases_risk",
+          "description": "Time_on_Social_Media (value: 3.5) elevates predicted risk toward High (+0.135 SHAP)."
+        },
+        {
+          "feature": "Phone_Checks_Per_Day",
+          "raw_value": 110,
+          "shap_value": 0.1136,
+          "impact": "increases_risk",
+          "description": "Phone_Checks_Per_Day (value: 110) elevates predicted risk toward High (+0.114 SHAP)."
+        },
+        {
+          "feature": "Apps_Used_Daily",
+          "raw_value": 15,
+          "shap_value": 0.0538,
+          "impact": "increases_risk",
+          "description": "Apps_Used_Daily (value: 15) elevates predicted risk toward High (+0.054 SHAP)."
+        },
+        {
+          "feature": "Sleep_Hours",
+          "raw_value": 5.5,
+          "shap_value": 0.0334,
+          "impact": "increases_risk",
+          "description": "Sleep_Hours (value: 5.5) elevates predicted risk toward High (+0.033 SHAP)."
+        }
+      ]
+    },
+    "explanationSummary": "Assessment indicates **High Addiction Risk** with 100.0% confidence. Primary risk drivers: **Daily_Usage_Hours, Time_on_Social_Media**.",
+    "userId": null,
+    "notes": ""
+  }
+]
