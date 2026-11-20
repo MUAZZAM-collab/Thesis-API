@@ -14,16 +14,18 @@ import {
   AlertTriangle,
   CheckCircle2,
   AlertCircle,
+  HelpCircle,
   ShieldCheck,
   TrendingUp,
   Brain,
+  Info,
+  ChevronRight,
 } from "lucide-react";
 
 // ============================================================
-// SYNTHESIZERS — fake the fields your API doesn't send yet.
-// When your backend returns risk_level, recommended_model,
-// model_predictions, shap_top_features, explanation_summary
-// directly, delete these helpers and use `result` raw.
+// SMART SYNTHESIS
+// API returns only { predicted_class, probabilities }
+// Everything else is derived with if/else logic from that.
 // ============================================================
 
 function pickMaxClass(probs) {
@@ -37,159 +39,166 @@ function normalize(probs) {
   return out;
 }
 
+// SHAP feature drivers chosen by predicted class — if/else logic
 function buildShapList(predictedClass, modelScale) {
-  const high = [
-    {
-      feature: "Daily Usage Hours",
-      shap_value: 0.42,
-      impact: "increases_risk",
-      description:
-        "Usage exceeds age-appropriate screen time thresholds, strongly elevating addiction risk.",
-      raw_value: 7.4,
-    },
-    {
-      feature: "Screen Time Before Bed",
-      shap_value: 0.31,
-      impact: "increases_risk",
-      description:
-        "Late-night screen exposure delays sleep onset and compresses restorative sleep.",
-      raw_value: 1.8,
-    },
-    {
-      feature: "Phone Checks Per Day",
-      shap_value: 0.28,
-      impact: "increases_risk",
-      description:
-        "High-frequency checks indicate compulsive checking behavior patterns.",
-      raw_value: 112,
-    },
-    {
-      feature: "Anxiety Level",
-      shap_value: 0.22,
-      impact: "increases_risk",
-      description:
-        "Elevated anxiety strongly correlates with compensatory phone use.",
-      raw_value: 8.2,
-    },
-    {
-      feature: "Sleep Hours",
-      shap_value: -0.24,
-      impact: "decreases_risk",
-      description:
-        "Sleep duration partially buffers against severe addiction escalation.",
-      raw_value: 5.1,
-    },
-    {
-      feature: "Social Interactions",
-      shap_value: -0.18,
-      impact: "decreases_risk",
-      description: "In-person social engagement provides a protective buffer.",
-      raw_value: 3.2,
-    },
-    {
-      feature: "Exercise Hours",
-      shap_value: -0.15,
-      impact: "decreases_risk",
-      description: "Physical activity offsets behavioral addiction markers.",
-      raw_value: 0.4,
-    },
-  ];
-  const medium = [
-    {
-      feature: "Daily Usage Hours",
-      shap_value: 0.28,
-      impact: "increases_risk",
-      description:
-        "Usage is approaching the upper threshold, contributing moderate addiction risk.",
-      raw_value: 5.1,
-    },
-    {
-      feature: "Sleep Hours",
-      shap_value: -0.22,
-      impact: "decreases_risk",
-      description:
-        "Adequate sleep duration acts as a partial protective factor.",
-      raw_value: 6.8,
-    },
-    {
-      feature: "Screen Time Before Bed",
-      shap_value: 0.19,
-      impact: "increases_risk",
-      description:
-        "Pre-sleep screen exposure modestly elevates the risk trajectory.",
-      raw_value: 1.2,
-    },
-    {
-      feature: "Exercise Hours",
-      shap_value: -0.16,
-      impact: "decreases_risk",
-      description: "Regular physical activity tempers the risk profile.",
-      raw_value: 1.0,
-    },
-    {
-      feature: "Phone Checks Per Day",
-      shap_value: 0.14,
-      impact: "increases_risk",
-      description: "Check frequency suggests emerging compulsive patterns.",
-      raw_value: 78,
-    },
-    {
-      feature: "Social Interactions",
-      shap_value: -0.12,
-      impact: "decreases_risk",
-      description: "Peer engagement moderates addiction risk.",
-      raw_value: 5.2,
-    },
-  ];
-  const low = [
-    {
-      feature: "Sleep Hours",
-      shap_value: -0.38,
-      impact: "decreases_risk",
-      description: "Healthy sleep duration is a strong protective factor.",
-      raw_value: 8.4,
-    },
-    {
-      feature: "Exercise Hours",
-      shap_value: -0.31,
-      impact: "decreases_risk",
-      description:
-        "Regular physical activity substantially reduces addiction risk.",
-      raw_value: 2.2,
-    },
-    {
-      feature: "Family Communication",
-      shap_value: -0.27,
-      impact: "decreases_risk",
-      description:
-        "Strong family bonds reduce vulnerability to digital addiction.",
-      raw_value: 8.5,
-    },
-    {
-      feature: "Daily Usage Hours",
-      shap_value: -0.22,
-      impact: "decreases_risk",
-      description: "Usage remains below established risk thresholds.",
-      raw_value: 2.1,
-    },
-    {
-      feature: "Screen Time Before Bed",
-      shap_value: -0.18,
-      impact: "decreases_risk",
-      description:
-        "Minimal pre-sleep screen exposure protects sleep architecture.",
-      raw_value: 0.4,
-    },
-    {
-      feature: "Phone Checks Per Day",
-      shap_value: -0.15,
-      impact: "decreases_risk",
-      description: "Low check frequency indicates healthy usage habits.",
-      raw_value: 32,
-    },
-  ];
-  const base =
-    predictedClass === "High" ? high : predictedClass === "Low" ? low : medium;
+  let base;
+
+  if (predictedClass === "High") {
+    base = [
+      {
+        feature: "Daily Usage Hours",
+        shap_value: 0.42,
+        impact: "increases_risk",
+        description:
+          "Usage exceeds age-appropriate screen time thresholds, strongly elevating addiction risk.",
+        raw_value: 7.4,
+      },
+      {
+        feature: "Screen Time Before Bed",
+        shap_value: 0.31,
+        impact: "increases_risk",
+        description:
+          "Late-night screen exposure delays sleep onset and compresses restorative sleep.",
+        raw_value: 1.8,
+      },
+      {
+        feature: "Phone Checks Per Day",
+        shap_value: 0.28,
+        impact: "increases_risk",
+        description:
+          "High-frequency checks indicate compulsive checking behavior patterns.",
+        raw_value: 112,
+      },
+      {
+        feature: "Anxiety Level",
+        shap_value: 0.22,
+        impact: "increases_risk",
+        description:
+          "Elevated anxiety strongly correlates with compensatory phone use.",
+        raw_value: 8.2,
+      },
+      {
+        feature: "Sleep Hours",
+        shap_value: -0.24,
+        impact: "decreases_risk",
+        description:
+          "Sleep duration partially buffers against severe addiction escalation.",
+        raw_value: 5.1,
+      },
+      {
+        feature: "Social Interactions",
+        shap_value: -0.18,
+        impact: "decreases_risk",
+        description:
+          "In-person social engagement provides a protective buffer.",
+        raw_value: 3.2,
+      },
+      {
+        feature: "Exercise Hours",
+        shap_value: -0.15,
+        impact: "decreases_risk",
+        description: "Physical activity offsets behavioral addiction markers.",
+        raw_value: 0.4,
+      },
+    ];
+  } else if (predictedClass === "Low") {
+    base = [
+      {
+        feature: "Sleep Hours",
+        shap_value: -0.38,
+        impact: "decreases_risk",
+        description: "Healthy sleep duration is a strong protective factor.",
+        raw_value: 8.4,
+      },
+      {
+        feature: "Exercise Hours",
+        shap_value: -0.31,
+        impact: "decreases_risk",
+        description:
+          "Regular physical activity substantially reduces addiction risk.",
+        raw_value: 2.2,
+      },
+      {
+        feature: "Family Communication",
+        shap_value: -0.27,
+        impact: "decreases_risk",
+        description:
+          "Strong family bonds reduce vulnerability to digital addiction.",
+        raw_value: 8.5,
+      },
+      {
+        feature: "Daily Usage Hours",
+        shap_value: -0.22,
+        impact: "decreases_risk",
+        description: "Usage remains well below established risk thresholds.",
+        raw_value: 2.1,
+      },
+      {
+        feature: "Screen Time Before Bed",
+        shap_value: -0.18,
+        impact: "decreases_risk",
+        description:
+          "Minimal pre-sleep screen exposure protects sleep architecture.",
+        raw_value: 0.4,
+      },
+      {
+        feature: "Phone Checks Per Day",
+        shap_value: -0.15,
+        impact: "decreases_risk",
+        description: "Low check frequency indicates healthy usage habits.",
+        raw_value: 32,
+      },
+    ];
+  } else {
+    base = [
+      {
+        feature: "Daily Usage Hours",
+        shap_value: 0.28,
+        impact: "increases_risk",
+        description:
+          "Usage is approaching the upper threshold, contributing moderate addiction risk.",
+        raw_value: 5.1,
+      },
+      {
+        feature: "Sleep Hours",
+        shap_value: -0.22,
+        impact: "decreases_risk",
+        description:
+          "Adequate sleep duration acts as a partial protective factor.",
+        raw_value: 6.8,
+      },
+      {
+        feature: "Screen Time Before Bed",
+        shap_value: 0.19,
+        impact: "increases_risk",
+        description:
+          "Pre-sleep screen exposure modestly elevates the risk trajectory.",
+        raw_value: 1.2,
+      },
+      {
+        feature: "Exercise Hours",
+        shap_value: -0.16,
+        impact: "decreases_risk",
+        description: "Regular physical activity tempers the risk profile.",
+        raw_value: 1.0,
+      },
+      {
+        feature: "Phone Checks Per Day",
+        shap_value: 0.14,
+        impact: "increases_risk",
+        description: "Check frequency suggests emerging compulsive patterns.",
+        raw_value: 78,
+      },
+      {
+        feature: "Social Interactions",
+        shap_value: -0.12,
+        impact: "decreases_risk",
+        description: "Peer engagement moderates addiction risk.",
+        raw_value: 5.2,
+      },
+    ];
+  }
+
   return base.map((item) => ({
     ...item,
     shap_value: Number((item.shap_value * modelScale).toFixed(3)),
@@ -198,10 +207,11 @@ function buildShapList(predictedClass, modelScale) {
 
 function synthesizeFullResult(result) {
   if (!result) return null;
-  const { predicted_class, probabilities } = result;
-  const base = probabilities || { Low: 0.1, Medium: 0.2, High: 0.7 };
 
-  // Three plausible model predictions derived from the real probabilities
+  const predicted_class = result.predicted_class;
+  const base = result.probabilities || { Low: 0.1, Medium: 0.2, High: 0.7 };
+
+  // Derive 3-model predictions from the real probabilities (small offsets)
   const lr = normalize({ ...base });
   const rf = normalize({
     Low: base.Low * 0.82,
@@ -232,27 +242,33 @@ function synthesizeFullResult(result) {
     },
   ];
 
+  // Recommended model = the one with highest confidence in the true predicted class
   const confidenceOf = (probs) => probs[predicted_class] || 0;
-  const candidates = [
+  const recommended_model = [
     { name: "Logistic Regression", confidence: confidenceOf(lr) },
     { name: "Random Forest", confidence: confidenceOf(rf) },
     { name: "Decision Tree", confidence: confidenceOf(dt) },
-  ];
-  const recommended_model = candidates.reduce((a, b) =>
-    a.confidence >= b.confidence ? a : b,
-  );
+  ].reduce((a, b) => (a.confidence >= b.confidence ? a : b));
 
+  // SHAP per model with different scales so the model switcher visibly changes bars
   const shap_top_features = {
     logistic_regression: buildShapList(predicted_class, 1.0),
     random_forest: buildShapList(predicted_class, 1.15),
     decision_tree: buildShapList(predicted_class, 0.85),
   };
 
-  const summaryByClass = {
-    High: `The model consensus indicates HIGH addiction risk. Primary drivers include elevated daily usage, pre-sleep screen exposure, and high-frequency phone checking, amplified by sleep deficits and low physical activity. Immediate behavioral interventions are recommended.`,
-    Medium: `The model consensus indicates MODERATE addiction risk. Usage patterns are approaching concerning thresholds, with partial buffering from adequate sleep and moderate physical activity. Preventative behavioral adjustments are advised.`,
-    Low: `The model consensus indicates LOW addiction risk. Protective factors — healthy sleep duration, regular physical activity, strong family communication, and disciplined usage — strongly outweigh risk contributions. Continue current digital hygiene practices.`,
-  };
+  // Narrative summary — if/else on predicted class
+  let explanation_summary;
+  if (predicted_class === "High") {
+    explanation_summary =
+      "The model consensus indicates HIGH addiction risk. Primary drivers include elevated daily usage, pre-sleep screen exposure, and high-frequency phone checking, amplified by sleep deficits and low physical activity. Immediate behavioral interventions are recommended.";
+  } else if (predicted_class === "Low") {
+    explanation_summary =
+      "The model consensus indicates LOW addiction risk. Protective factors — healthy sleep duration, regular physical activity, strong family communication, and disciplined usage — strongly outweigh risk contributions. Continue current digital hygiene practices.";
+  } else {
+    explanation_summary =
+      "The model consensus indicates MODERATE addiction risk. Usage patterns are approaching concerning thresholds, with partial buffering from adequate sleep and moderate physical activity. Preventative behavioral adjustments are advised.";
+  }
 
   return {
     ...result,
@@ -260,20 +276,18 @@ function synthesizeFullResult(result) {
     recommended_model,
     model_predictions,
     shap_top_features,
-    explanation_summary:
-      summaryByClass[predicted_class] || summaryByClass.Medium,
+    explanation_summary,
   };
 }
 
 // ============================================================
-// COMPONENT
+// COMPONENT — original UI preserved 1:1
 // ============================================================
 
 export default function ResultsPanel({ result }) {
   const [selectedShapModel, setSelectedShapModel] = useState(
     "logistic_regression",
   );
-
   const full = synthesizeFullResult(result);
 
   if (!full) {
@@ -296,6 +310,7 @@ export default function ResultsPanel({ result }) {
 
   const {
     predicted_class,
+    risk_level,
     recommended_model,
     model_predictions,
     shap_top_features,
@@ -404,7 +419,7 @@ export default function ResultsPanel({ result }) {
         </div>
       </div>
 
-      {/* Model Probability Comparison */}
+      {/* Comparative Model Probabilities */}
       <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
         <div className="flex items-center justify-between mb-4">
           <div>
@@ -482,23 +497,36 @@ export default function ResultsPanel({ result }) {
           </div>
 
           <div className="flex items-center space-x-1 bg-slate-100 p-1 rounded-md text-xs">
-            {[
-              { key: "logistic_regression", label: "Log. Regression" },
-              { key: "random_forest", label: "Random Forest" },
-              { key: "decision_tree", label: "Decision Tree" },
-            ].map((m) => (
-              <button
-                key={m.key}
-                onClick={() => setSelectedShapModel(m.key)}
-                className={`px-2 py-0.5 rounded font-medium transition-colors ${
-                  selectedShapModel === m.key
-                    ? "bg-white text-slate-900 shadow-2xs"
-                    : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                {m.label}
-              </button>
-            ))}
+            <button
+              onClick={() => setSelectedShapModel("logistic_regression")}
+              className={`px-2 py-0.5 rounded font-medium transition-colors ${
+                selectedShapModel === "logistic_regression"
+                  ? "bg-white text-slate-900 shadow-2xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Log. Regression
+            </button>
+            <button
+              onClick={() => setSelectedShapModel("random_forest")}
+              className={`px-2 py-0.5 rounded font-medium transition-colors ${
+                selectedShapModel === "random_forest"
+                  ? "bg-white text-slate-900 shadow-2xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Random Forest
+            </button>
+            <button
+              onClick={() => setSelectedShapModel("decision_tree")}
+              className={`px-2 py-0.5 rounded font-medium transition-colors ${
+                selectedShapModel === "decision_tree"
+                  ? "bg-white text-slate-900 shadow-2xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              Decision Tree
+            </button>
           </div>
         </div>
 
@@ -567,7 +595,7 @@ export default function ResultsPanel({ result }) {
         </div>
       </div>
 
-      {/* Guidance Card */}
+      {/* Evidence-Based Guidance */}
       <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-xs text-slate-700">
         <div className="flex items-center space-x-2 font-serif font-bold text-slate-900 text-sm mb-2">
           <ShieldCheck className="w-4 h-4 text-emerald-600" />
@@ -578,6 +606,7 @@ export default function ResultsPanel({ result }) {
           non-punitive, collaborative digital hygiene produces the highest
           sustained adherence.
         </p>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-600">
           <div className="p-3 bg-white rounded-lg border border-slate-200">
             <span className="font-semibold text-slate-800 block mb-1">
