@@ -13,14 +13,18 @@ export default function Predict() {
     try {
       setLoading(true);
       setError(null);
-      const res = await axios.post("/api/predict", formData);
+      const res = await axios.post(
+        "https://teen-addiction-model-api.onrender.com/predict",
+        formData,
+      );
+      // const res = await axios.post("/api/predict", formData);
       setResult(res.data);
     } catch (err) {
       console.error("Prediction error:", err);
       setError(
         err.response?.data?.error?.detail ||
           err.response?.data?.error ||
-          "Failed to obtain prediction from ML microservice."
+          "Failed to obtain prediction from ML microservice.",
       );
     } finally {
       setLoading(false);
@@ -36,7 +40,8 @@ export default function Predict() {
             Adolescent Smartphone Addiction Risk Classifier
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Predictive modeling using Decision Tree, Logistic Regression, and Random Forest with local SHAP feature explanations.
+            Predictive modeling using Decision Tree, Logistic Regression, and
+            Random Forest with local SHAP feature explanations.
           </p>
         </div>
 

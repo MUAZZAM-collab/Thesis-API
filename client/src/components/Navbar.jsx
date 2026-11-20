@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Activity, BarChart3, UploadCloud, History, BookOpen, CheckCircle, AlertCircle, Sparkles } from "lucide-react";
+import {
+  Activity,
+  BarChart3,
+  UploadCloud,
+  History,
+  BookOpen,
+  CheckCircle,
+  AlertCircle,
+  Sparkles,
+} from "lucide-react";
 import axios from "axios";
 
 export default function Navbar({ activeTab, setActiveTab, onOpenAbout }) {
@@ -8,7 +17,10 @@ export default function Navbar({ activeTab, setActiveTab, onOpenAbout }) {
   useEffect(() => {
     const checkStatus = async () => {
       try {
-        const res = await axios.get("/api/health");
+        // const res = await axios.get("/api/health");
+        const res = await axios.get(
+          "https://teen-addiction-model-api.onrender.com/health",
+        );
         setHealth(res.data);
       } catch (e) {
         setHealth({ status: "offline" });
@@ -23,7 +35,7 @@ export default function Navbar({ activeTab, setActiveTab, onOpenAbout }) {
     { id: "predict", label: "Risk Assessment", icon: Activity },
     { id: "insights", label: "Model Insights", icon: BarChart3 },
     { id: "batch", label: "Batch CSV Import", icon: UploadCloud },
-    { id: "history", label: "History Log", icon: History }
+    { id: "history", label: "History Log", icon: History },
   ];
 
   return (
@@ -31,7 +43,10 @@ export default function Navbar({ activeTab, setActiveTab, onOpenAbout }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo & Paper Citation Title */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab("predict")}>
+          <div
+            className="flex items-center space-x-3 cursor-pointer"
+            onClick={() => setActiveTab("predict")}
+          >
             <div className="w-10 h-10 rounded-lg bg-navy-900 text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">
               Ψ
             </div>
